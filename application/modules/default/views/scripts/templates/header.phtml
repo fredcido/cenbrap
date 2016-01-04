@@ -1,0 +1,51 @@
+<?php 
+	$config 	= Zend_Registry::get( 'config' );
+	$session = new Zend_Session_Namespace( $config->geral->appid );
+?>
+
+<div data-role="header" data-position="fixed">
+	<?php if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+		
+		<?php if ( empty($this->noBack) ): ?>
+			<a href="#" data-icon="back" data-rel="back">Voltar</a>
+		<?php endif; ?>
+		
+		<h1><?php echo $this->mobile()->getTitle(); ?></h1>
+		
+		<?php if ( Zend_Auth::getInstance()->hasIdentity() ): ?>
+		 
+			<a href="javascript:Cenbrap.logout();" id="logout" data-icon="delete" data-theme="c">
+				Sair
+			</a>
+
+			<?php if ( $this->mobile()->hasShowNavebar() ): ?>
+				<div data-role="navbar">
+				    <ul>
+				    	<?php if ( count($session->cursos) > 1 ): ?>
+					    	<li>
+					    		<a href="<?php echo $this->baseUrl('index'); ?>" data-icon="home">Cursos</a>
+					    	</li>
+				    	<?php endif; ?>
+				    	<?php if ( 'index' !== Zend_Controller_Front::getInstance()->getRequest()->getControllerName() ): ?>
+				    		<li>
+				    			<a href="<?php echo $this->mobile()->menu( $this->baseUrl('index/menu') ); ?>" data-icon="list">Menu</a>
+				    		</li>
+				    	<?php endif; ?>
+				        <li>
+				        	<a href="<?php echo $this->baseUrl('aviso'); ?>" data-icon="star">Mural de Avisos</a>
+				        </li>
+				        <li>
+				        	<a href="<?php echo $this->baseUrl('noticia'); ?>" data-icon="info">Not&iacute;cias</a>
+				        </li>
+				    </ul>
+				</div>
+			<?php endif; ?>
+
+		<?php endif; ?>
+			
+	<?php else: ?>
+
+		<h1 class="logo-cenbrap"><?php echo $this->mobile()->getTitle(); ?></h1>
+
+	<?php endif; ?>
+</div>

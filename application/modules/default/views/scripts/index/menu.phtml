@@ -1,0 +1,18 @@
+<ul data-role="listview" data-inset="true">
+	<li><a href="<?php echo $this->baseUrl('material-didatico'); ?>">Material Did&aacute;tico</a></li>
+	<li><a href="<?php echo $this->baseUrl('lancamento'); ?>">Encontros / Notas / Frequ&ecirc;ncias</a></li>
+	<li><a href="<?php echo $this->baseUrl('pendencia'); ?>">Pend&ecirc;ncias</a></li>
+	<li><a href="<?php echo $this->baseUrl('rematricula'); ?>">Rematr&iacute;cula</a></li>
+	
+	<?php if ( !empty( $this->menu['vagas'] ) ) : ?>
+	    <li><a href="<?php echo $this->baseUrl( 'vaga' ); ?>">Vagas de Emprego</a></li>
+	<?php endif; ?>
+	    
+	<?php if ( !empty( $this->menu['legislacao'] ) ) : ?>
+	    <li><a href="<?php echo $this->baseUrl( 'legislacao' ); ?>">Legislação</a></li>
+	<?php endif; ?>
+	    
+	<li><a href="<?php echo $this->baseUrl('perfil'); ?>">Atualize seus Dados</a></li>
+</ul>
+
+<?php echo $this->render('templates/midia-social.phtml'); ?>

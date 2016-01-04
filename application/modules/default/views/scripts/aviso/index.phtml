@@ -1,0 +1,35 @@
+<?php echo $this->action( 'paginator', 'aviso', 'default' ); ?>
+
+<script type="text/javascript">
+    $( '#mais-anuncio' ).live( 'click', 
+	function( e )
+	{
+	    e.stopPropagation();
+	    
+	    var p = $(this).attr( 'data-page' );
+	    
+	    $.mobile.showPageLoadingMsg();
+	    
+	    $.ajax(
+		{
+		    url: baseUrl + 'aviso/paginator/p/' + p,
+		    complete: function()
+		    {
+			$.mobile.hidePageLoadingMsg();
+		    },
+		    success: function( data ) 
+		    {    
+			var snippet = $( data ).find( '#list-avisos' ).html();
+			
+			$('#content #list-avisos').append( snippet ).listview( 'refresh' );
+			
+			if ( $(data).find( '#mais-anuncio' ).length > 0 )
+			    $( '#content #mais-anuncio' ).attr( 'data-page', $(data).find( '#mais-anuncio' ).eq( 0 ).attr( 'data-page' ) );
+			else
+			    $( '#content #mais-anuncio' ).remove();
+		    }
+		}
+	    );
+	}
+    );
+</script>

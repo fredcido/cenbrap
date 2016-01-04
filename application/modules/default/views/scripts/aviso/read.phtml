@@ -1,0 +1,9 @@
+<div class="justifiy" data-role="content">
+	<h1>(<?php echo $this->aviso['data']; ?>) <?php echo $this->aviso['titulo']; ?></h1>
+
+	<?php echo nl2br( $this->aviso['texto'] ); ?>
+
+	<?php if ( !empty($this->aviso['link']) ): ?>
+		<a rel="external" href="<?php echo $this->aviso['link'] ?>" data-role="button" data-icon="download">Download</a>
+	<?php endif; ?>
+</div>

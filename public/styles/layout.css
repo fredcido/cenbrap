@@ -1,0 +1,142 @@
+/* Logo */
+.logo-cenbrap {
+	height: 60px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background: transparent url(../images/logo.png) center no-repeat !important;
+}
+
+input.ui-input-text, textarea.ui-input-text {
+	margin: 0!important;
+}
+
+#auth #usuario {
+	text-transform: lowercase;
+}
+
+.justifiy { 
+	text-align: justify; 
+}
+
+p.green { color: #009900; }
+p.red { color: #FF0000; }
+
+/* Notification */
+ul.notification {
+	list-style-type: none;
+	border-radius: 5px;
+    position: fixed;
+    z-index: 9999999;
+    left:50%;
+	top:50%;
+	margin-left:-110px;
+	margin-top:-40px;
+}
+ul.notification.error {background: #DD4B39;}
+ul.notification.warning {background: #D8BF41;}
+ul.notification.success {background: #6ABB45;}
+ul.notification li {color: #FFFFFF;}
+ul.notification li span {
+	width: 18px;
+	height: 18px;
+	display: block;
+	float: left;
+	background: transparent url(../images/icons-18-white.png) no-repeat;
+}
+ul.notification li span.warning {
+	background-position: -506px 2px;
+}
+ul.notification li span.success {
+	background-position: -255px 2px;
+}
+ul.notification li span.error {
+	background-position: -75px 2px;
+}
+
+/* Painel */
+.painel.ui-header.ui-bar-o {
+	height: 43px;
+    background-image: -moz-linear-gradient(center bottom , #E9E6DE 0px, #FFFFFF 100%);
+    border: medium none;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2), 0 0 1px 1px rgba(255, 255, 255, 0.6) inset;
+    padding-left: 5px;
+    padding-right: 8px;
+    z-index: 1;
+}
+.logo {
+	width: 160px;
+    height: 52px;
+    display: inline-block;
+    float: left;
+    background: transparent url(../images/logo.png) center no-repeat;
+    background-size: 100% auto;
+    margin-left: 5px;
+    margin-top: 7px;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+#footer {
+	text-align: center;
+	color: #ffffff;
+    font-size: 12px;
+}
+
+form .ui-grid-a .ui-block-a { padding: 0 10px 0 0 !important; }
+form .ui-grid-a .ui-block-b { padding: 0 0 0 10px !important; }
+form .ui-grid-b .ui-block-a { padding: 0 10px 0 0 !important; }
+form .ui-grid-b .ui-block-c { padding: 0 0 0 10px !important; }
+
+.invalid { 
+	border-color: #E9322D;
+	box-shadow: 0 0 6px #F8B9B7;
+	color: #B94A48;
+}
+
+.ui-icon {
+	width: 20px;
+	height: 20px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	margin-top: -10px !important;
+	line-height: 20px;
+}
+.ui-icon:before { margin-left: 3px; }
+
+/* fix for Github issue #6 */
+.ui-btn-icon-notext .ui-btn-inner .ui-icon {
+	margin: 1px 1px 2px 2px !important;
+}
+.ui-li-link-alt .ui-btn-inner .ui-icon {
+	margin: -10px -10px auto auto !important;	
+}
+
+/* fix for icons within header bars */
+.ui-navbar .ui-icon {
+	margin-top: 0 !important;
+}
+
+.ui-icon-facebook, .ui-icon-twitter, .ui-icon-download {
+	background-image: url('../images/icons-18-white-pack.png') !important;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 240dpi) {
+	
+	.ui-icon-facebook, .ui-icon-twitter, .ui-icon-download {
+		background-image: url('../images/icons-36-white-pack.png');
+		-moz-background-size: 774px 54px;
+		-o-background-size: 774px 54px;
+		-webkit-background-size: 774px 54px;
+		background-size: 774px 54px;
+	}
+	.ui-icon-alt {
+		background-image: url('../images/icons-36-black-pack.png'	);
+	}
+}
+
+.ui-icon-facebook { background-position: -178px -17px !important; }
+.ui-icon-twitter { background-position: -142px -17px !important; }
+.ui-icon-download { background-position: -35px -17px !important; }

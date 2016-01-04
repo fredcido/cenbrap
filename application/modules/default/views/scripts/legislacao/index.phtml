@@ -1,0 +1,35 @@
+<?php echo $this->action( 'paginator', 'legislacao', 'default' ); ?>
+
+<script type="text/javascript">
+    $( '#mais-legislacao' ).live( 'click', 
+	function( e )
+	{
+	    e.stopPropagation();
+	    
+	    var p = $(this).attr( 'data-page' );
+	    
+	    $.mobile.showPageLoadingMsg();
+	    
+	    $.ajax(
+		{
+		    url: baseUrl + 'legislacao/paginator/p/' + p,
+		    complete: function()
+		    {
+			$.mobile.hidePageLoadingMsg();
+		    },
+		    success: function( data ) 
+		    {    
+			var snippet = $( data ).find( '#list-legislacao' ).html();
+			
+			$( '#list-legislacao' ).append( snippet ).listview( 'refresh' );
+
+			if ( $(data).find( '#mais-legislacao' ).length > 0 )
+			    $( '#content #mais-legislacao' ).attr( 'data-page', $(data).find( '#mais-legislacao' ).eq( 0 ).attr( 'data-page' ) );
+			else
+			    $( '#content #mais-legislacao' ).remove();
+		    }
+		}
+	    );
+	}
+    );
+</script>

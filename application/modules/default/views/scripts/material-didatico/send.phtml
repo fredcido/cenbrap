@@ -1,0 +1,28 @@
+<?php if ( !empty( $this->data ) ): ?>
+
+    <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="true">
+    	<?php foreach ( $this->data as $key => $data ): ?>
+    		<li data-role="list-divider">
+				<?php echo $this->date( $key, "EEE, dd 'de' MMMM 'de' yyyy." ); ?>
+				<span class="ui-li-count"><?php echo count( $data ); ?></span>
+		    </li>
+	    	<?php foreach ( $data as $item ): ?>
+	        	<li>
+	        		<a rel="external" href="<?php echo $item['link']; ?>">
+			      		<h2><?php echo $item['titulo']; ?></h2>
+			        	<p><?php echo $item['descricao']; ?></p>
+			        </a>
+	        	</li>
+	        <?php endforeach; ?>
+        <?php endforeach; ?>	
+    </ul>
+
+<?php else : ?>
+
+    <ul data-role="listview" data-inset="true">
+	<li data-theme="c">
+	    Não foram encontrados materiais didáticos
+	</li>
+    </ul>
+
+<?php endif; ?>

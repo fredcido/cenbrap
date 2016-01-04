@@ -1,0 +1,25 @@
+<?php if ( $this->legislacao->count() < 1 ): ?>
+
+	<ul data-role="listview" data-inset="true">
+		<li data-theme="c">
+		    Não foram encontradas dados da Legislação.
+		</li>
+	</ul>
+
+<?php else : ?>
+
+	<ul data-role="listview" data-inset="true" id="list-legislacao">
+		<?php foreach ( $this->legislacao as $legislacao ) : ?>
+			<li>
+				<a rel="external" href="<?php echo $legislacao['link']; ?>">
+					<?php echo $legislacao['titulo']; ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+
+	<?php if ( !empty( $this->more ) ) : ?>
+		<a data-role="button" data-page="<?php echo ++$this->page; ?>" data-shadow="false" id="mais-legislacao" href="javascript:;">Mais..</a>
+	<?php endif; ?>
+
+<?php endif; ?>

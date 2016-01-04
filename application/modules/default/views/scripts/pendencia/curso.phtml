@@ -1,0 +1,27 @@
+<ul data-role="listview" data-inset="true">
+    <?php foreach ( $this->disponibilidades as $disponibilidade ) : ?>
+	<li data-role="list-divider">
+	    <?php echo $disponibilidade['data_ini']; ?>
+	    - 
+	    <?php echo $disponibilidade['data_final']; ?>
+	</li>
+	<li>
+		<?php if ( 'AGENDAR' === strtoupper($disponibilidade['status']) ): ?>
+		    <a data-rel="dialog" 
+		       href="<?php echo $this->baseUrl( 
+			       'pendencia/form/c/' . 
+			       $disponibilidade['curso']['codigo'] . '/d/' . 
+			       $this->pendencia['disciplina']['codigo'] . '/e/' .
+			       $disponibilidade['encontro']
+			       ); ?>">
+				<?php echo $disponibilidade['curso']['descricao']; ?>
+		    </a>
+		<?php else: ?>
+			<h2><?php echo $disponibilidade['curso']['descricao']; ?></h2>
+			<?php if ( !empty($disponibilidade['status']) ): ?>
+				<p><?php echo $disponibilidade['status'] ?></p>
+			<?php endif; ?>
+		<?php endif; ?>
+	</li>
+    <?php endforeach; ?>
+</ul>

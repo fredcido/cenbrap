@@ -1,0 +1,21 @@
+<?php if ( empty( $this->cursos ) ) : ?>
+
+    <ul data-role="listview" data-inset="true">
+	<li data-theme="c">
+	    Não foram encontrados cursos.
+	</li>
+    </ul>
+
+<?php else : ?>
+
+    <ul data-role="listview" data-filter="true" data-filter-placeholder="Cursos" data-inset="true">
+	<?php foreach ( $this->cursos as $curso ) : ?>
+	    <li>
+		<a href="<?php echo $this->baseUrl( "/index/menu/id/{$curso['codigo']}" ); ?>">
+		    <?php echo $curso['descricao']; ?>
+		</a>
+	    </li>
+	<?php endforeach; ?>
+    </ul>
+
+<?php endif; ?>

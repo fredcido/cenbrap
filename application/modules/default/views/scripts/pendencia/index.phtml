@@ -1,0 +1,60 @@
+<?php if ( !empty($this->documentos) ): ?>
+
+	<ul data-role="listview" data-inset="true" data-divider-theme="c">
+		<li data-role="list-divider">Documentos Pendente</li>
+	    <?php foreach ( $this->documentos as $documento ) : ?>
+			<li><?php echo $documento; ?></li>
+	    <?php endforeach; ?>
+	</ul>
+
+<?php endif; ?>
+
+<?php if ( empty( $this->pendencias ) ) : ?>
+
+    <ul data-role="listview" data-inset="true">
+	<li data-theme="c">
+	    Não foram encontradas pendências
+	</li>
+    </ul>
+
+<?php else : ?>
+
+	<ul data-role="listview" data-inset="true" data-count-theme="a" data-divider-theme="c">
+		<li data-role="list-divider">Disciplinas Pendentes</li>
+		<?php foreach ( $this->pendencias as $key => $pendencia ) : ?>
+	    	<li>
+	    		<a href="<?php echo $this->baseUrl( 'pendencia/curso/p/' . $key ); ?>" data-theme="e">
+	    			<h2><?php echo $pendencia['disciplina']['descricao']; ?></h2>
+
+					<?php echo $this->mobile()->statusPendencia( $pendencia['disponibilidade'] ); ?>
+
+	    			<span class="ui-li-count">
+	    				<?php echo count( $pendencia['disponibilidade'] ); ?>
+	    			</span>
+	    		</a>
+	    	</li>
+		<?php endforeach; ?>
+	</ul>
+
+	<!--
+    <ul data-role="listview" data-inset="true" data-count-theme="a">
+	<?php foreach ( $this->pendencias as $key => $pendencia ) : ?>
+	    <li data-role="list-divider">
+	    <?php echo $pendencia['disciplina']['descricao']; ?>
+	    <span class="ui-li-count">
+		<?php echo count( $pendencia['disponibilidade'] ); ?>
+	    </span>
+	    </li>
+	    <li>
+		<a href="<?php echo $this->baseUrl( 'pendencia/curso/p/' . $key ); ?>">
+		    <p>
+			Nota: <strong><?php echo $pendencia['nota']; ?></strong><br>
+			Frequ&ecirc;ncia: <strong><?php echo $pendencia['frequencia']; ?></strong>
+		    </p>
+		</a>
+	    </li>
+	<?php endforeach; ?>
+    </ul>
+	-->
+
+<?php endif; ?>

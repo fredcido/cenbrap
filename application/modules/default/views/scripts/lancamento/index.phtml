@@ -1,0 +1,24 @@
+<?php //echo $this->form; ?>
+
+<ul data-role="listview" data-inset="true">
+	<?php if ( !empty( $this->data ) ): ?>
+		<?php foreach ( $this->data as $data ) : ?>
+	    	<li data-role="list-divider">
+				<?php echo $data['data_inicial']; ?> - <?php echo empty( $data['data_final'] ) ? '' : $data['data_final']; ?>
+		    </li>
+		    <li>
+				<h2><?php echo $data['titulo']; ?></h2>
+				<p><strong><?php echo $data['professor']; ?></strong></p>
+				<p class="<?php echo (empty($data['nota']) && empty($data['frequencia'])) ? 'red' : 'green'; ?>">
+				    Nota: <?php echo empty( $data['nota'] ) ? 0 : $data['nota']; ?><br />
+				    Frequ&ecirc;ncia: <?php echo empty( $data['frequencia'] ) ? 0 : $data['frequencia']; ?>%
+				</p>
+	    	</li>
+		<?php endforeach; ?>
+
+	<?php else : ?>
+		<li data-theme="c">
+		    Não foram encontradas Encontros / Notas / Frequências.
+		</li>
+	<?php endif; ?>
+</ul>

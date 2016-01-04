@@ -1,0 +1,16 @@
+<?php if ( !empty( $this->noticias ) ): ?>
+	<ul data-role="listview" data-inset="true">
+	    <?php foreach ( $this->noticias as $noticia ) : ?>
+		<li><?php echo $noticia['titulo']; ?></li>
+	    <?php endforeach; ?>
+	</ul>
+
+<?php else : ?>
+
+     <ul data-role="listview" data-inset="true">
+	<li data-theme="c">
+	    Não foram encontradas notícias
+	</li>
+    </ul>
+
+<?php endif; ?>

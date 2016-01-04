@@ -1,0 +1,36 @@
+<?php if ( $this->vagas->count() < 1 ) : ?>
+
+    <ul data-role="listview" data-inset="true">
+	<li data-theme="c">
+	    Não foram encontradas Vagas de Emprego.
+	</li>
+    </ul>
+
+<?php else : ?>
+
+    <ul data-role="listview" data-inset="true" id="list-vagas">
+	<?php foreach ( $this->vagas as $data => $vagas ) : ?>
+	    <li data-role="list-divider">
+		<?php echo $this->date( $data, "EEE, dd 'de' MMMM 'de' yyyy." ); ?>
+		<span class="ui-li-count">
+		    <?php echo count( $vagas ); ?>
+		</span>
+	    </li>
+	    <li>
+		<div data-role="collapsible-set">
+		    <?php foreach ( $vagas as $vaga ) : ?>
+			<div data-role="collapsible" class="collapsed-item" data-content-theme="c">
+			    <h3><?php echo $vaga['titulo']; ?></h3>
+			    <p><?php echo nl2br( $vaga['texto'] ); ?></p>
+			</div>
+		    <?php endforeach; ?>
+		</div>
+	    </li>
+	<?php endforeach; ?>
+    </ul>
+
+    <?php if ( !empty( $this->more ) ) : ?>
+	<a data-role="button" data-page="<?php echo ++$this->page; ?>" data-shadow="false" id="mais-vagas" href="javascript:;">Mais..</a>
+    <?php endif; ?>
+
+<?php endif; ?>

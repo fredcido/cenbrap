@@ -1,0 +1,32 @@
+<?php echo $this->doctype('HTML5'); ?>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Cenbrap</title>
+	
+	<link rel="stylesheet" href="<?php echo $this->baseUrl('public/styles/Bootstrap.css'); ?>">
+	<link rel="stylesheet" href="<?php echo $this->baseUrl('public/styles/jquery.mobile.structure.css'); ?>">
+	<link rel="stylesheet" href="<?php echo $this->baseUrl('public/styles/layout.css'); ?>">
+	
+	<script type="text/javascript" src="<?php echo $this->baseUrl('public/scripts/jquery.js'); ?>"></script>
+	<script type="text/javascript" src="<?php echo $this->baseUrl('public/scripts/general.js'); ?>" charset="ISO-8859-1"></script>
+	<script type="text/javascript" src="<?php echo $this->baseUrl('public/scripts/jquery.mobile.js'); ?>"></script>
+
+	<script type="text/javascript">
+		var baseUrl = '<?php echo $this->baseUrl('/'); ?>';
+	</script>
+</head>
+<body>
+	<div data-role="page">
+		<?php echo $this->render( 'templates/header.phtml' ); ?>
+
+		<div data-role="content" id="content">
+			<?php echo $this->layout()->content; ?>
+		</div>
+
+		<?php echo $this->render( 'templates/footer.phtml' ); ?>
+	</div>
+</body>
+</html>

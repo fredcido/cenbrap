@@ -1,0 +1,24 @@
+<?php $this->placeholder('form')->captureStart(); ?>
+	
+	<?php echo $this->form->getElement('usuario'); ?>
+	
+	<div class="ui-grid-a">
+		<div class="ui-block-a">
+			<a href="#" data-role="button" data-icon="delete" data-shadow="false" data-rel="back">Sair</a>
+		</div>
+		<div class="ui-block-b">
+			<?php echo $this->form->getElement('Enviar'); ?>
+		</div>
+	</div>
+	
+<?php $this->placeholder('form')->captureEnd(); ?>
+
+<div data-role="header">
+	<h1>Recuperar Senha</h1>
+</div>
+
+<div id="recovery" data-role="dialog">
+	<div data-role="content">
+		<?php echo $this->form( $this->form->getId(), $this->form->getAttribs(), $this->placeholder('form') ); ?>
+	</div>
+</div>
